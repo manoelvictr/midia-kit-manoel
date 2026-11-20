@@ -382,6 +382,14 @@
 /* seta em SVG (substitui o emoji ↗ no iOS) */
 .ar{display:inline-block;width:.8em;height:.8em;margin-left:.35em;vertical-align:-.04em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center/contain no-repeat}
 
+/* iOS: conteúdo da frente vazava no verso do card */
+.face *{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.face-front{visibility:visible;transition:visibility 0s linear .32s}
+.face-back{visibility:hidden;transition:visibility 0s linear .32s}
+.case.is-flipped .face-front{visibility:hidden}
+.case.is-flipped .face-back{visibility:visible}
+@media (prefers-reduced-motion:reduce){.face-front,.face-back{transition-delay:0s}}
+
 </style>
 <style>
 /* ==========================================================================
